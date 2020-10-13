@@ -1,27 +1,28 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 12:53 PM
+ *  * Created by Achmad Fathullah on 10/13/20 8:56 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 12:53 PM
+ *  * Last modified 10/13/20 8:56 PM
  *
  */
 
 package id.co.homecredit.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import id.co.homecredit.MyApplication
 import id.co.homecredit.R
 import id.co.homecredit.core.data.Resource
 import id.co.homecredit.core.ui.ViewModelFactory
+import id.co.homecredit.utils.dialog.LoadingDialog
+import id.co.homecredit.utils.extension.showToast
 import javax.inject.Inject
 
 class HomePageActivity : AppCompatActivity() {
     @Inject
     lateinit var factory: ViewModelFactory
-
+    private val loadingDialog by lazy { LoadingDialog(this) }
     private val homePageViewModel: HomePageViewModel by lazy {
         ViewModelProvider(this, factory)[HomePageViewModel::class.java]
     }
@@ -33,22 +34,15 @@ class HomePageActivity : AppCompatActivity() {
         homePageViewModel.homePage.observe(this, { homePage ->
             if (homePage != null) {
                 when (homePage) {
-                    is Resource.Loading -> Toast.makeText(this, "loading", Toast.LENGTH_SHORT)
-                        .show()
+                    is Resource.Loading -> {
+                        loadingDialog.show(true)
+                    }
                     is Resource.Success -> {
-                        Toast.makeText(
-                            this,
-                            "selesai ${homePage.data?.get(0)?.section}",
-                            Toast.LENGTH_LONG
-                        ).show()
-
+                        loadingDialog.show(false)
                     }
                     is Resource.Error -> {
-                        Toast.makeText(
-                            this,
-                            "selesai ${homePage.message}",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        loadingDialog.show(false)
+                        showToast("selesai ${homePage.message}")
                     }
                 }
             }

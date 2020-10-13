@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 12:53 PM
+ *  * Created by Achmad Fathullah on 10/13/20 8:56 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 10:33 AM
+ *  * Last modified 10/13/20 6:34 PM
  *
  */
 
@@ -74,5 +74,11 @@ dependencies {
 
     // debugging
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    //rv with multiple view
+    implementation "io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:$section_rv"
+
+    //loading-animation
+    implementation "com.wang.avi:library:$wang_anim"
 
 }

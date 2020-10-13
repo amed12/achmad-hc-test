@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 12:53 PM
+ *  * Created by Achmad Fathullah on 10/13/20 8:56 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 12:53 PM
+ *  * Last modified 10/13/20 7:42 PM
  *
  */
 
@@ -33,8 +33,7 @@ class HomeCreditRepository @Inject constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<HomePage>?): Boolean =
-                data == null || data.isEmpty()
+            override fun shouldFetch(data: List<HomePage>?): Boolean = true
 
             override suspend fun createCall(): Flow<ApiResponse<List<HomePage>>> =
                 remoteDataSource.getAllHomePage()
