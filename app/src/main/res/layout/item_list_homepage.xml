@@ -24,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/image_banner_height"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/cd_image_button"
             android:scaleType="centerCrop"
+            android:contentDescription="@string/cd_image_button"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:padding="@dimen/margin_padding_small"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             tools:text="@tools:sample/lorem" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

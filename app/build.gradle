@@ -37,6 +37,9 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -75,10 +78,8 @@ dependencies {
     // debugging
     implementation "com.jakewharton.timber:timber:$timber_version"
 
-    //rv with multiple view
-    implementation "io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:$section_rv"
-
     //loading-animation
     implementation "com.wang.avi:library:$wang_anim"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$multiviewholder_rv"
 
 }

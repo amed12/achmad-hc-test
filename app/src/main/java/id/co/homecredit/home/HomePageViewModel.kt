@@ -8,10 +8,20 @@
 
 package id.co.homecredit.home
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
+import id.co.homecredit.core.data.Resource
+import id.co.homecredit.core.domain.model.HomePage
 import id.co.homecredit.core.domain.usecase.HomeCreditUseCase
+import timber.log.Timber
 
 class HomePageViewModel(homeCreditUseCase: HomeCreditUseCase) : ViewModel() {
-    val homePage = homeCreditUseCase.getHomePage().asLiveData()
+    private var homeFetchingLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val homePage: LiveData<Resource<List<HomePage>>>
+    init {
+        Timber.d("Injection view model")
+        homePage =  homeFetchingLiveData.switchMap {
+            homeCreditUseCase.getHomePage().asLiveData()
+        }
+    }
+    fun getDataHomePage() = homeFetchingLiveData.postValue(true)
 }

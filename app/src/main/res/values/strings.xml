@@ -9,4 +9,6 @@
 <resources>
     <string name="app_name">MyHomeCredit</string>
     <string name="cd_image_button">This is Image Button</string>
+    <string name="alert_empty_data">No Data Found</string>
+    <string name="help_reload_page">Click to try again</string>
 </resources>

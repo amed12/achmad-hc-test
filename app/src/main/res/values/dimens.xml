@@ -22,5 +22,5 @@
     <dimen name="spacing">9dp</dimen>
     <dimen name="dividerHeight">8dp</dimen>
     <dimen name="icon_width_height">30dp</dimen>
-    <dimen name="image_banner_height">100dp</dimen>
+    <dimen name="image_banner_height">150dp</dimen>
 </resources>

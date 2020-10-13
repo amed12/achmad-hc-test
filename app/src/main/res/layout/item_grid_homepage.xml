@@ -19,7 +19,7 @@
         android:layout_height="@dimen/icon_width_height"
         android:adjustViewBounds="true"
         android:contentDescription="@string/cd_image_button"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
@@ -28,6 +28,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/margin_padding_small"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
         tools:text="@tools:sample/lorem" />
 </LinearLayout>
