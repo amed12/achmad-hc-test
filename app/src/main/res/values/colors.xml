@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ /**
-  ~  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+  ~  * Created by Achmad Fathullah on 10/14/20 12:13 AM
   ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 10/13/20 9:21 AM
+  ~  * Last modified 10/14/20 12:12 AM
   ~  */
   -->
 
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#448AFF</color>
     <color name="app_background_color">#FAFAFA</color>
     <color name="item_selected_background_color">#C7C7CC</color>
-    <color name="image_placeholder_background_color">#C7C7CC</color>
 </resources>

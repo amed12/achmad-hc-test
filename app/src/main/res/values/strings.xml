@@ -1,14 +1,13 @@
 <!--
   ~ /**
-  ~  * Created by Achmad Fathullah on 10/13/20 8:56 PM
+  ~  * Created by Achmad Fathullah on 10/14/20 12:13 AM
   ~  * Copyright (c) 2020 . All rights reserved.
-  ~  * Last modified 10/13/20 4:52 PM
+  ~  * Last modified 10/14/20 12:03 AM
   ~  */
   -->
 
 <resources>
     <string name="app_name">MyHomeCredit</string>
     <string name="cd_image_button">This is Image Button</string>
-    <string name="alert_empty_data">No Data Found</string>
     <string name="help_reload_page">Click to try again</string>
 </resources>
