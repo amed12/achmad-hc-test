@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /**
+  ~  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 10/13/20 9:21 AM
+  ~  */
+  -->
+
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+</resources>

@@ -1,0 +1,10 @@
+/*
+ * *
+ *  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+ *  * Copyright (c) 2020 . All rights reserved.
+ *  * Last modified 10/13/20 9:19 AM
+ *
+ */
+
+include ':app'
+rootProject.name = "My Homecredit"
