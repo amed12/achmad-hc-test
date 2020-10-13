@@ -1,33 +1,23 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+ *  * Created by Achmad Fathullah on 10/13/20 12:53 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 9:21 AM
+ *  * Last modified 10/13/20 12:45 PM
  *
  */
 
 package id.co.homecredit.core.ui
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import id.co.homecredit.core.di.Injection
 import id.co.homecredit.core.domain.usecase.HomeCreditUseCase
+import id.co.homecredit.di.AppScope
 import id.co.homecredit.home.HomePageViewModel
+import javax.inject.Inject
 
-class ViewModelFactory private constructor(private val homeCreditUseCase: HomeCreditUseCase) :
+@AppScope
+class ViewModelFactory @Inject constructor(private val homeCreditUseCase: HomeCreditUseCase) :
     ViewModelProvider.NewInstanceFactory() {
-    companion object {
-        @Volatile
-        private var instance: ViewModelFactory? = null
-
-        fun getInstance(context: Context): ViewModelFactory =
-            instance ?: synchronized(
-                this
-            ) {
-                instance ?: ViewModelFactory(Injection.provideHomeCreditUseCase(context))
-            }
-    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
