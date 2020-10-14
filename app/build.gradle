@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 8:56 PM
+ *  * Created by Achmad Fathullah on 10/14/20 7:29 AM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 6:34 PM
+ *  * Last modified 10/14/20 7:26 AM
  *
  */
 
@@ -49,11 +49,14 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_version}"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    //Testing
     testImplementation "junit:junit:$junit_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    implementation "androidx.multidex:multidex:$multidex_version"
 
+    implementation "androidx.multidex:multidex:$multidex_version"
     implementation "androidx.cardview:cardview:$cardview_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "com.google.android.material:material:$material_version"

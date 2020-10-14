@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 8:56 PM
+ *  * Created by Achmad Fathullah on 10/14/20 7:29 AM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 8:56 PM
+ *  * Last modified 10/14/20 7:27 AM
  *
  */
 
@@ -21,12 +21,12 @@ import id.co.homecredit.core.data.Resource
 import id.co.homecredit.core.ui.ViewModelFactory
 import id.co.homecredit.home.adapter.HomePageGridAdapter
 import id.co.homecredit.home.adapter.HomePageListAdapter
+import id.co.homecredit.utils.EspressoIdlingResource
 import id.co.homecredit.utils.dialog.LoadingDialog
 import id.co.homecredit.utils.extension.showToast
 import kotlinx.android.synthetic.main.activity_home_page.*
 import kotlinx.android.synthetic.main.view_failed.view.*
 import kotlinx.android.synthetic.main.view_header.view.*
-import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -51,9 +51,13 @@ class HomePageActivity : AppCompatActivity() {
             if (homePage != null) {
                 when (homePage) {
                     is Resource.Loading -> {
+                        EspressoIdlingResource.increment()
                         loadingDialog.show(true)
                     }
                     is Resource.Success -> {
+                        if (!EspressoIdlingResource.idlingresource.isIdleNow) {
+                            EspressoIdlingResource.decrement()
+                        }
                         loadingDialog.show(false)
                         homePage.data?.map {
                             if (it.sectionTitle.isEmpty()) {
@@ -67,15 +71,15 @@ class HomePageActivity : AppCompatActivity() {
                                                     Uri.parse(it.items[position].link)
                                                 )
                                             )
-                                        }catch (e:Exception){
+                                        } catch (e: Exception) {
                                             showToast(e.toString())
                                         }
                                     }
                                 }
                             } else {
-                                with(adapterList){
+                                with(adapterList) {
                                     setList(it.items)
-                                    setHeaderView(getHeaderView(rv_list_homepage,it.sectionTitle))
+                                    setHeaderView(getHeaderView(rv_list_homepage, it.sectionTitle))
                                     setOnItemClickListener { _, _, position ->
                                         try {
                                             startActivity(
@@ -84,7 +88,7 @@ class HomePageActivity : AppCompatActivity() {
                                                     Uri.parse(it.items[position].link)
                                                 )
                                             )
-                                        }catch (e:Exception){
+                                        } catch (e: Exception) {
                                             showToast(e.toString())
                                         }
                                     }
@@ -94,9 +98,22 @@ class HomePageActivity : AppCompatActivity() {
                         }
                     }
                     is Resource.Error -> {
+                        if (!EspressoIdlingResource.idlingresource.isIdleNow) {
+                            EspressoIdlingResource.decrement()
+                        }
                         loadingDialog.show(false)
-                        adapterGrid.setEmptyView(getErrorGridView(rv_grid_homepage,homePage.message.toString()))
-                        adapterList.setEmptyView(getErrorGridView(rv_list_homepage,homePage.message.toString()))
+                        adapterGrid.setEmptyView(
+                            getErrorGridView(
+                                rv_grid_homepage,
+                                homePage.message.toString()
+                            )
+                        )
+                        adapterList.setEmptyView(
+                            getErrorGridView(
+                                rv_list_homepage,
+                                homePage.message.toString()
+                            )
+                        )
                     }
                 }
             }
