@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+ *  * Created by Achmad Fathullah on 10/14/20 7:29 AM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 9:19 AM
+ *  * Last modified 10/14/20 7:26 AM
  *
  */
 
@@ -37,6 +37,9 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -46,11 +49,14 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_version}"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    //Testing
     testImplementation "junit:junit:$junit_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    implementation "androidx.multidex:multidex:$multidex_version"
 
+    implementation "androidx.multidex:multidex:$multidex_version"
     implementation "androidx.cardview:cardview:$cardview_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "com.google.android.material:material:$material_version"
@@ -69,7 +75,14 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
     // debugging
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    //loading-animation
+    implementation "com.wang.avi:library:$wang_anim"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$multiviewholder_rv"
 
 }

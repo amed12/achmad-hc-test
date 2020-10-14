@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+ *  * Created by Achmad Fathullah on 10/13/20 12:53 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 9:19 AM
+ *  * Last modified 10/13/20 12:45 PM
  *
  */
 
@@ -14,17 +14,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import timber.log.Timber
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RemoteDataSource private constructor(private val apiService: ApiService) {
-    companion object {
-        @Volatile
-        private var instance: RemoteDataSource? = null
-
-        fun getInstance(service: ApiService): RemoteDataSource =
-            instance ?: synchronized(this) {
-                instance ?: RemoteDataSource(service)
-            }
-    }
+@Singleton
+class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
 
     suspend fun getAllHomePage() = flow {
         try {

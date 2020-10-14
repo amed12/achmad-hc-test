@@ -1,8 +1,8 @@
 /*
  * *
- *  * Created by Achmad Fathullah on 10/13/20 9:22 AM
+ *  * Created by Achmad Fathullah on 10/14/20 12:13 AM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 10/13/20 9:19 AM
+ *  * Last modified 10/14/20 12:03 AM
  *
  */
 
@@ -15,7 +15,7 @@ import id.co.homecredit.core.domain.model.HomePage
 class Converters {
 
     @TypeConverter
-    fun homePageToJson(value: List<HomePage.Item>?) = Gson().toJson(value)
+    fun homePageToJson(value: List<HomePage.Item>?): String = Gson().toJson(value)
 
     @TypeConverter
     fun homePageJsonToList(value: String) =

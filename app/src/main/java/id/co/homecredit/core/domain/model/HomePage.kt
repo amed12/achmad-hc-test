@@ -26,5 +26,10 @@ data class HomePage(
         val productImage: String = "", // https://img.icons8.com/color/phone
         @SerializedName("product_name")
         val productName: String = "" // Pembiayaan Handphone
+        , // https://www.homecredit.co.id/kredit-hp
+        @SerializedName("article_title")
+        val articleTitle: String = "", // https://img.icons8.com/color/phone
+        @SerializedName("article_image")
+        val articleImage: String = "" // Pembiayaan Handphone
     )
 }
